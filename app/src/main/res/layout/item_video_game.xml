@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivVideoGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:contentDescription="@string/contentDescription_ivVideoGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvVideoGameNameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/tvVideoGameName"
+        app:layout_constraintEnd_toStartOf="@+id/tvVideoGameName"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivVideoGame" />
+
+    <TextView
+        android:id="@+id/tvVideoGameName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="3dp"
+        android:text="@string/tvVideoGameName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvVideoGameNameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/ivVideoGame" />
+
+    <TextView
+        android:id="@+id/tvVideoGameConsoleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/tvVideoGameConsole"
+        app:layout_constraintEnd_toStartOf="@+id/tvVideoGameConsole"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoGameDeveloper" />
+
+    <TextView
+        android:id="@+id/tvVideoGameConsole"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="3dp"
+        android:text="@string/tvVideoGameConsole"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvVideoGameConsoleTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoGameDeveloper" />
+
+    <TextView
+        android:id="@+id/tvVideoGameDeveloperTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/tvVideoGameDeveloper"
+        app:layout_constraintEnd_toStartOf="@+id/tvVideoGameDeveloper"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoGameName" />
+
+    <TextView
+        android:id="@+id/tvVideoGameDeveloper"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="3dp"
+        android:text="@string/tvVideoGameDeveloper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvVideoGameDeveloperTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoGameName" />
+
+    <TextView
+        android:id="@+id/tvVideoGameGenreTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/tvVideoGameGenre"
+        app:layout_constraintEnd_toStartOf="@+id/tvVideoGameGenre"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoGameConsole" />
+
+    <TextView
+        android:id="@+id/tvVideoGameGenre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/tvVideoGameGenre"
+        app:layout_constraintEnd_toStartOf="@+id/tvVideoGameReleaseDateTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvVideoGameGenreTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoGameConsole" />
+
+    <TextView
+        android:id="@+id/tvVideoGameReleaseDateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/tvVideoGameReleaseDate"
+        app:layout_constraintEnd_toStartOf="@+id/tvVideoGameReleaseDate"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvVideoGameGenre"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoGameConsole" />
+
+    <TextView
+        android:id="@+id/tvVideoGameReleaseDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="3dp"
+        android:text="@string/tvVideoGameReleaseDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvVideoGameReleaseDateTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoGameConsole" />
+
+    <TextView
+        android:id="@+id/tvVideoGameImageUrlTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tvVideoGameImageUrl"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvVideoGameImageUrl"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoGameGenre" />
+
+    <TextView
+        android:id="@+id/tvVideoGameImageUrl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tvVideoGameImageUrl"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvVideoGameImageUrlTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoGameGenre" />
+</androidx.constraintlayout.widget.ConstraintLayout>

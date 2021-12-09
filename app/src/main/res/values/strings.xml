@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Practica Final Acceso a Datos y Desarrollo de Interfaces</string>
+
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="contentDescription_ivVideoGame">contentDescription_ivVideoGame</string>
+    <string name="tvVideoGameName">Name:</string>
+    <string name="tvVideoGameGenre">Genre:</string>
+    <string name="tvVideoGameConsole">Video Game Console:</string>
+    <string name="tvVideoGameDeveloper">Developer:</string>
+    <string name="tvVideoGameReleaseDate">Release date:</string>
+    <string name="tvVideoGameImageUrl">Image Url:</string>
+    <string name="contentDescription_ivUploadImageVideoGame">contentDescription_ivUploadImageVideoGame</string>
+    <string name="hintVideoGameName">Video Game Name</string>
+    <string name="hintVideoGameDeveloper">Video Game Developer</string>
+    <string name="hintVideoGameConsole">Video Game Console</string>
+    <string name="hintVideoGameGenre">Genre</string>
+    <string name="hintVideoGameReleaseDate">Release Date</string>
+    <string name="hintVideoGameImageUrl">Image Url</string>
+    <string name="btCancelAddVideoGame">Cancel</string>
+    <string name="btAddVideoGame">Add</string>
+    <string name="tvVideoGameCover">Video Game Cover:</string>
+    <string name="contentDescription_ivVideoGamerCover">ivGameCover</string>
+    <string name="contentDescription_ivVideoGameCover">ivVideoGameCover</string>
+    <string name="btDeleteVideoGame">Delete</string>
+    <string name="btEditVideoGame">Edit</string>
+    <string name="btCancelEditVideoGame">Cancel</string>
+    <string name="btSaveEditVideoGame">Save</string>
+    <string name="contentDescription_fabAddVideoGame">contentDescription_fabAddVideoGame</string>
+
+    <string name="toast_invalidInputData">Invalid input data</string>
+    <string name="alertDialogAdd_title">Add video game</string>
+    <string name="alertDialogAdd_message">Add this game to your library?</string>
+    <string name="alertDialogAdd_confirm">Accept</string>
+    <string name="alertDialogAdd_cancel">Cancel</string>
+
+    <string name="error_videoGameName">This game is already in your collection</string>
+
+    <string name="helper_videoGameDate">Format: yyyy</string>
+
+    <string name="toast_addVideoGame">The game has been added to your collection</string>
+
+    <string name="alertDialogEdit_title">Edit video game</string>
+    <string name="alertDialogEdit_message">Save Changes?</string>
+    <string name="alertDialogEdit_confirm">Accept</string>
+    <string name="alertDialogEdit_cancel">Cancel</string>
+
+    <string name="alertDialogDelete_title">Delete video game</string>
+    <string name="alertDialogDelete_message">" Delete this game from your collection? "</string>
+    <string name="alertDialogDelete_confirm">Accept</string>
+    <string name="alertDialogDelete_cancel">Cancel</string>
+
+    <string name="quita_nombre"/>
+    <string name="default_videoGameConsole">Video Game Console</string>
+    <string name="tvMainTitle"><u>My Video Game Library</u></string>
+    <string name="toast_editVideoGame">The game has been edited</string>
+    <string name="toast_deleteVideoGame">The game has been deleted</string>
+</resources>
