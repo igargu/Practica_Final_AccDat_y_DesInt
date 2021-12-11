@@ -19,6 +19,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.squareup.picasso.Picasso;
+
 import org.izv.igg.ac_desint.practicafinalaccesoadatosydesarrollodeinterfaces.R;
 import org.izv.igg.ac_desint.practicafinalaccesoadatosydesarrollodeinterfaces.databinding.FragmentAddBinding;
 import org.izv.igg.ac_desint.practicafinalaccesoadatosydesarrollodeinterfaces.databinding.FragmentEditBinding;
@@ -77,6 +79,7 @@ public class EditFragment extends Fragment {
         etVideoGameImageUrl.setText(String.valueOf(getArguments().getSerializable("id_VideoGameImageUrl")));
 
         ivVideoGameCover = binding.ivUploadImageVideoGame;
+        Picasso.get().load(etVideoGameImageUrl.getText().toString()).into(ivVideoGameCover);
 
         btDeleteVideoGame = binding.btDeleteVideoGame;
         btEditVideoGame = binding.btEditVideoGame;
@@ -178,7 +181,7 @@ public class EditFragment extends Fragment {
                 .setMessage(R.string.alertDialogEdit_message)
                 .setPositiveButton(R.string.alertDialogEdit_confirm, (dialog, which) -> {
                     // Guardo cambios del video juego
-                    videoGameVM.updateVideoGameByName(videoGame.name,videoGame.genre,videoGame.developer,videoGame.releaseDate,videoGame.imageUrl,videoGame.idVideoGameConsole,String.valueOf(getArguments().getSerializable("id_VideoGameName")));
+                    videoGameVM.updateVideoGameByName(videoGame.name, videoGame.genre, videoGame.developer, videoGame.releaseDate, videoGame.imageUrl, videoGame.idVideoGameConsole, String.valueOf(getArguments().getSerializable("id_VideoGameName")));
                     Toast.makeText(getParentFragment().getContext(), R.string.toast_editVideoGame, Toast.LENGTH_LONG).show();
                     getActivity().onBackPressed();
                 })

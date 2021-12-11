@@ -153,6 +153,11 @@ public class VideoGameRepository {
         return liveVideoGame;
     }
 
+    @Query("select name from VideoGame")
+    public String getVideoGameName() {
+        return dao.getVideoGameName();
+    }
+
     public LiveData<VideoGameConsole> getVideoGameConsole(long id) {
         if(liveVideoGameConsole == null) {
             liveVideoGameConsole = dao.getVideoGameConsole(id);

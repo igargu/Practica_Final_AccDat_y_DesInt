@@ -52,6 +52,11 @@ public class VideoGameViewModel extends AndroidViewModel {
         return repository.getVideoGame(id);
     }
 
+    @Query("select name from VideoGame")
+    public String getVideoGameName() {
+        return repository.getVideoGameName();
+    }
+
     @Query("select name from VideoGameConsole where id = :id")
     public String getVideoGameConsoleName(long id) {
         return repository.getVideoGameConsoleName(id);

@@ -55,6 +55,9 @@ public interface VideoGameDao {
     @Query("select * from VideoGame where id = :id")
     LiveData<VideoGame> getVideoGame(long id);
 
+    @Query("select name from VideoGame")
+    String getVideoGameName();
+
     @Query("select * from VideoGameConsole where id = :id")
     LiveData<VideoGameConsole> getVideoGameConsole(long id);
 

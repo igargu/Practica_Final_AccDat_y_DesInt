@@ -58,4 +58,5 @@
     <string name="tvMainTitle"><u>My Video Game Library</u></string>
     <string name="toast_editVideoGame">The game has been edited</string>
     <string name="toast_deleteVideoGame">The game has been deleted</string>
+    <string name="toast_videoGameInLibrary">This video game is already in your collection</string>
 </resources>
