@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -65,21 +67,7 @@ public class EditFragment extends Fragment {
 
     private void initialize() {
 
-        etVideoGameName = binding.etVideoGameName;
-        etVideoGameName.setText(String.valueOf(getArguments().getSerializable("id_VideoGameName")));
-        etVideoGameDeveloper = binding.etVideoGameDeveloper;
-        etVideoGameDeveloper.setText(String.valueOf(getArguments().getSerializable("id_VideoGameDeveloper")));
-        spVideoGameConsole = binding.spVideoGameConsole;
-        spVideoGameConsole.setSelection(Integer.parseInt(String.valueOf(getArguments().getSerializable("id_VideoGameConsole"))));
-        etVideoGameGenre = binding.etVideoGameGenre;
-        etVideoGameGenre.setText(String.valueOf(getArguments().getSerializable("id_VideoGameGenre")));
-        etVideoGameReleaseDate = binding.etVideoGameDate;
-        etVideoGameReleaseDate.setText(String.valueOf(getArguments().getSerializable("id_VideoGameReleaseDate")));
-        etVideoGameImageUrl = binding.etVideoGameImageUrl;
-        etVideoGameImageUrl.setText(String.valueOf(getArguments().getSerializable("id_VideoGameImageUrl")));
-
-        ivVideoGameCover = binding.ivUploadImageVideoGame;
-        Picasso.get().load(etVideoGameImageUrl.getText().toString()).into(ivVideoGameCover);
+        setVideoGame();
 
         btDeleteVideoGame = binding.btDeleteVideoGame;
         btEditVideoGame = binding.btEditVideoGame;
@@ -88,13 +76,9 @@ public class EditFragment extends Fragment {
 
         getViewModel();
 
-        etVideoGameName.setEnabled(false);
-        etVideoGameDeveloper.setEnabled(false);
-        spVideoGameConsole.setEnabled(false);
-        etVideoGameGenre.setEnabled(false);
-        etVideoGameReleaseDate.setEnabled(false);
-        etVideoGameImageUrl.setEnabled(false);
+        disableFields();
 
+        defineImageViewListener();
         defineDeleteListener();
         defineEditListener();
     }
@@ -110,15 +94,14 @@ public class EditFragment extends Fragment {
         binding.btEditVideoGame.setOnClickListener(view -> editVideoGame());
     }
 
+    private void defineImageViewListener() {
+        uploadImageView();
+    }
+
     private void defineSaveCancelEditListener() {
         binding.btCancelEditVideoGame.setOnClickListener(view -> {
 
-            etVideoGameName.setEnabled(false);
-            etVideoGameDeveloper.setEnabled(false);
-            spVideoGameConsole.setEnabled(false);
-            etVideoGameGenre.setEnabled(false);
-            etVideoGameReleaseDate.setEnabled(false);
-            etVideoGameImageUrl.setEnabled(false);
+            disableFields();
 
             btDeleteVideoGame.setVisibility(View.VISIBLE);
             btEditVideoGame.setVisibility(View.VISIBLE);
@@ -155,6 +138,15 @@ public class EditFragment extends Fragment {
                 .show();
     }
 
+    private void disableFields() {
+        etVideoGameName.setEnabled(false);
+        etVideoGameDeveloper.setEnabled(false);
+        spVideoGameConsole.setEnabled(false);
+        etVideoGameGenre.setEnabled(false);
+        etVideoGameReleaseDate.setEnabled(false);
+        etVideoGameImageUrl.setEnabled(false);
+    }
+
     private void editVideoGame() {
         btDeleteVideoGame.setVisibility(View.GONE);
         btEditVideoGame.setVisibility(View.GONE);
@@ -165,6 +157,10 @@ public class EditFragment extends Fragment {
         btCancelEditVideoGame.setVisibility(View.VISIBLE);
         defineSaveCancelEditListener();
 
+        enableFields();
+    }
+
+    private void enableFields() {
         etVideoGameName.setEnabled(true);
         etVideoGameDeveloper.setEnabled(true);
         spVideoGameConsole.setEnabled(true);
@@ -172,7 +168,6 @@ public class EditFragment extends Fragment {
         etVideoGameReleaseDate.setEnabled(true);
         etVideoGameImageUrl.setEnabled(true);
     }
-
 
     private void saveEditVideoGame(VideoGame videoGame) {
 
@@ -233,6 +228,35 @@ public class EditFragment extends Fragment {
             System.out.println(getArguments().getSerializable("id_VideoGameConsole"));
             spVideoGameConsole.setSelection(Integer.parseInt(String.valueOf(getArguments().getSerializable("id_VideoGameConsole"))));
 
+        });
+    }
+
+    private void setVideoGame() {
+        etVideoGameName = binding.etVideoGameName;
+        etVideoGameName.setText(String.valueOf(getArguments().getSerializable("id_VideoGameName")));
+        etVideoGameDeveloper = binding.etVideoGameDeveloper;
+        etVideoGameDeveloper.setText(String.valueOf(getArguments().getSerializable("id_VideoGameDeveloper")));
+        spVideoGameConsole = binding.spVideoGameConsole;
+        spVideoGameConsole.setSelection(Integer.parseInt(String.valueOf(getArguments().getSerializable("id_VideoGameConsole"))));
+        etVideoGameGenre = binding.etVideoGameGenre;
+        etVideoGameGenre.setText(String.valueOf(getArguments().getSerializable("id_VideoGameGenre")));
+        etVideoGameReleaseDate = binding.etVideoGameDate;
+        etVideoGameReleaseDate.setText(String.valueOf(getArguments().getSerializable("id_VideoGameReleaseDate")));
+        etVideoGameImageUrl = binding.etVideoGameImageUrl;
+        etVideoGameImageUrl.setText(String.valueOf(getArguments().getSerializable("id_VideoGameImageUrl")));
+
+        ivVideoGameCover = binding.ivUploadImageVideoGame;
+        Picasso.get().load(etVideoGameImageUrl.getText().toString()).into(ivVideoGameCover);
+    }
+
+    private void uploadImageView() {
+        ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+                uri -> {
+                    Picasso.get().load(uri).into(ivVideoGameCover);
+                });
+
+        binding.ivUploadImageVideoGame.setOnClickListener(view -> {
+            mGetContent.launch("image/*");
         });
     }
 

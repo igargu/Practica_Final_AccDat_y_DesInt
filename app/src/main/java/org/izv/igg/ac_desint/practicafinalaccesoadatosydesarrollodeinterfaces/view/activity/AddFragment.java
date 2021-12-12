@@ -1,7 +1,9 @@
 package org.izv.igg.ac_desint.practicafinalaccesoadatosydesarrollodeinterfaces.view.activity;
 
 import android.app.AlertDialog;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +15,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.squareup.picasso.Picasso;
 
 import org.izv.igg.ac_desint.practicafinalaccesoadatosydesarrollodeinterfaces.R;
 import org.izv.igg.ac_desint.practicafinalaccesoadatosydesarrollodeinterfaces.databinding.DropdownMenuPopupItemBinding;
@@ -87,6 +94,8 @@ public class AddFragment extends Fragment {
         etVideoGameGenre.setText("");
         etVideoGameReleaseDate.setText("");
         etVideoGameImageUrl.setText("");
+
+        ivVideoGameCover.setImageResource(R.drawable.ivuploadimagevideogame);
     }
 
     private void defineAddListener() {
@@ -98,6 +107,10 @@ public class AddFragment extends Fragment {
                 Toast.makeText(getParentFragment().getContext(), R.string.toast_invalidInputData, Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void defineImageViewListener() {
+        uploadImageView();
     }
 
     private VideoGame getVideoGame() {
@@ -150,7 +163,18 @@ public class AddFragment extends Fragment {
         ivVideoGameCover = binding.ivUploadImageVideoGame;
 
         getViewModel();
-
+        defineImageViewListener();
         defineAddListener();
+    }
+
+    private void uploadImageView() {
+        ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+                uri -> {
+                    Picasso.get().load(uri).into(ivVideoGameCover);
+                });
+
+        binding.ivUploadImageVideoGame.setOnClickListener(view -> {
+            mGetContent.launch("image/*");
+        });
     }
 }
